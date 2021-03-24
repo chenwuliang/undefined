@@ -1,0 +1,77 @@
+// 冒泡排序,每一趟找出最大的,总共比较次数为arr.length-1次,每次的比较次数为arr.length-1次，依次递减
+var arr=[1,5,7,9,16,2,4];
+var temp;
+for(var i=0;i<arr.length-1;i++){
+    for(var j=0;j<arr.length-1;j++){
+        if(arr[j]>arr[j+1]){
+            temp=arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+    }
+}
+
+// 快速排序
+function quickSort(arr){
+    if(arr.length <= 1){
+        return arr;
+    }
+    var left = [];
+    var right = [];
+    var midIndex = parseInt(arr.length / 2);
+    var mid = arr[midIndex];
+    for(var i = 0 ; i < arr.length ; i++){
+        if(i == midIndex) continue;
+        if( arr[i] < mid){
+            left.push(arr[i])
+        }else{
+            right.push(arr[i]);
+        }
+    }
+    return quickSort(left).concat([mid],quickSort(right));
+}
+
+// 一维数组排序
+var arr=[1,5,7,9,16,2,4];
+arr.sort(function(a,b){
+    return b-a;  //降序排列，return a-b; —>升序排列
+})  //括号里不写回调函数，则默认按照字母逐位升序排列，结果为[1,16,2,4,5,7,9]
+
+/**
+ * 选择排序 性能一般
+ */
+var arr=[1,23,5,8,11,78,45];
+var temp;
+for(var i=0;i<arr.length-1;i++){
+    for(var j=i+1;j<arr.length;j++){
+        if(arr[i]>arr[j]){
+            temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+    }
+}
+
+/**
+ * 希尔排序
+ * @param {Array} arr 
+ * @returns Array
+ * 性能最好的排序
+ */
+function xier(arr){
+    var interval = parseInt(arr.length / 2);  //分组间隔设置
+    while(interval > 0){
+        for(var i = 0 ; i < arr.length ; i ++){
+            var n = i;
+            while(arr[n] < arr[n - interval] && n > 0){
+                var temp = arr[n];
+                arr[n] = arr[n - interval];
+                arr[n - interval] = temp;
+                n = n - interval;
+            }
+        }
+        interval = parseInt(interval / 2);
+    }
+    return arr;
+}
+xier([12,9,38,44,7,98,35,59,49,88,38])
