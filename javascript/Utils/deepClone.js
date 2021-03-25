@@ -1,7 +1,8 @@
 
 function deepClone (obj) {
-    if (typeof obj !== 'object') return obj 
     if (typeof obj === null) return null
+    // if (typeof obj === 'function') return obj.bind()
+    if (typeof obj !== 'object') return obj 
     if (obj instanceof RegExp) return new RegExp(obj)
     if (obj instanceof Date) return new Date(obj)
     else {
@@ -21,7 +22,8 @@ let test = {
     date: new Date,
     reg: new RegExp,
     reg2: /^2$/,
-    err: new Error('err')
+    err: new Error('err'),
+    fn: () => {}
 }
 let obj2 = deepClone(test)
 // console.log(test)
