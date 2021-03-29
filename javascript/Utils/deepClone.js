@@ -1,7 +1,6 @@
 
 function deepClone (obj) {
     if (typeof obj === null) return null
-    // if (typeof obj === 'function') return obj.bind()
     if (typeof obj !== 'object') return obj 
     if (obj instanceof RegExp) return new RegExp(obj)
     if (obj instanceof Date) return new Date(obj)

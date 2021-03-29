@@ -1,6 +1,29 @@
 const PENDING = Symbol('PENDING')
 const RESOLVED = Symbol('RESOLVED')
 const REJECTED = Symbol('REJECTED')
+
+const handlePromise = (promise, result, resolve, reject) => {
+    if (promise === result) {
+        throw new Error('循环引用对象')
+    }
+    let called = false
+    if ((typeof result === 'object' && result !== null) || typeof result === 'function') {
+        try {
+            if (typeof result.then === 'function') {
+
+            } else {
+                resolve(result)
+            }
+        } catch (e) {
+            // if (called) return
+			// called = true;
+            reject(e)
+        }
+    } else {
+        resolve(result)
+    }
+
+}
 class Promise {
     constructor (executor) {
         // 当前状态
