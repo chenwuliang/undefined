@@ -93,7 +93,7 @@ function objectCopy(obj) {
 function createAnother(original) {
     let clone = objectCopy(original);
     clone.getName = function () {
-    console.log(this.name);
+        console.log(this.name);
     };
     return clone;
 }
@@ -154,3 +154,35 @@ let child2 = new Child("yl", 22)
 child2.sayAge(); // 22
 child2.sayName(); // yl
 console.log(child2.friends); // ["rose", "lily", "tom"]
+
+
+
+class Point {
+    constructor (x, y) {
+        console.log(new.target.name)
+        this.x = x
+        this.y = y
+    }
+    point () {
+        console.log('Point')
+    }
+    pname = 'point'
+}
+
+class Color extends Point {
+    constructor (name, x, y) {
+        super(x, y)
+        this.name = name
+    }
+    say () {
+        console.log(this.name)
+    }
+    test () {
+        console.log(super.point)
+        console.log(super.pname)
+    }
+}
+
+new Point(1,2)
+new Color('c', 3, 4)
+

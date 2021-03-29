@@ -26,3 +26,12 @@ function _new (Fn, ...args) {
 function Animal (name) {
     this.name = name
 }
+
+
+
+function _new_ (fn, ...args) {
+    if (typeof fn !== 'function') return
+    const obj = Object.create(fn.prototype)
+    const result = fn.apply(obj, args)
+    return result instanceof Object ? result : obj
+}
