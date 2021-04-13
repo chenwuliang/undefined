@@ -7,11 +7,11 @@
     <title>Document</title>
     <style>
         .wrap {
-            width: calc( 100% - 40px );
             overflow:hidden;
             text-overflow:ellipsis;
             white-space:nowrap;
             display: inline-block;
+            width: 100%;
         }
         .button {
             float: right;
@@ -19,17 +19,15 @@
     </style>
 </head>
 <body>
-    <div>
-        <div class="wrap">
-            这是一行文字
-            这是一行文字
-            这是一行文字
-            这是一行文字
-            这是一行文字
-            这是一行文字
-            这是一行文字
-        </div>
-        <div class="button">展开</div>
+    <div class="wrap">
+        <span class="button">展开</span>
+        这是一行文字
+        这是一行文字
+        这是一行文字
+        这是一行文字
+        这是一行文字
+        这是一行文字
+        这是一行文字
     </div>
 </body>
 </html>
