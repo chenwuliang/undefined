@@ -47,6 +47,7 @@ https://www.bilibili.com/video/BV1ek4y1r7GT?from=search&seid=6372870826348641699
 
 ## HTTP 
 - https://juejin.cn/post/6844904100035821575
+
 1. http1.0 http1.1 http2（多路复用以及解决了什么问题，帧，push）
 2. 强缓存 协商缓存
 3. 跨域 以及解决方式 4种 
@@ -61,7 +62,7 @@ https://www.bilibili.com/video/BV1ek4y1r7GT?from=search&seid=6372870826348641699
 6. 三次握手 过程
 
 ## TCP
-0. https://juejin.cn/post/6844904070889603085
+- https://juejin.cn/post/6844904070889603085
 
 ## webpack
 1. 内部运行过程
@@ -78,6 +79,7 @@ https://www.bilibili.com/video/BV1ek4y1r7GT?from=search&seid=6372870826348641699
 ## 框架原理
 - Vue
 
+[黄轶](https://ustbhuangyi.github.io/vue-analysis/) | [learnVue](https://github.com/answershuto/learnVue)
     0. 使用
         1. data 函数 return 对象原因
         2. 组件通信方案
@@ -98,7 +100,9 @@ https://www.bilibili.com/video/BV1ek4y1r7GT?from=search&seid=6372870826348641699
 - React
 
 ## Node
-0. https://www.bilibili.com/video/BV11t411k79h?from=search&seid=6109501002242082581
+
+https://www.bilibili.com/video/BV11t411k79h?from=search&seid=6109501002242082581
+
 1. 与前端比 eventLoop 差异
 2. commonjs & module 实现原理  & require 过程 & 导出的是值传递还是依赖 & 如何解决循环引用 & 和 require 与 import 的区别
 3. AMD & CMD 区别 / commonjs & requirejs 
