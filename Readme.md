@@ -24,6 +24,7 @@ https://www.bilibili.com/video/BV1ek4y1r7GT?from=search&seid=6372870826348641699
         on(eventName, callback)
         once(eventName, callback)
         emit(eventName, ...args)
+        remove(eventName)
     ```
     6. 树形结构寻路径
     ```

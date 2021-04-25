@@ -1,3 +1,5 @@
+// https://ts.xcatliu.com/
+// https://jkchao.github.io/typescript-book-chinese/typings/indexSignatures.html
 
 let arr = [
     {id: 1, name: 1},
