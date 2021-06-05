@@ -37,87 +37,46 @@ class Promise {
 	constructor(executor) {
 		this.status = PENDING; 
 		this.value = undefined; 
-		this.reason = undefined; 
 		this.onResolvedCallbacks = [];
-		this.onRejectedCallbacks = [];
 		let resolve = (value) => {
-			if (value instanceof Promise) {
-				value.then(resolve, reject);
-				return;
-			}
 			if (this.status === PENDING) { 
 				this.value = value;
 				this.status = RESOLVED;
-				this.onResolvedCallbacks.forEach(fn => fn());
+				this.onResolvedCallbacks.forEach(
+					fn => fn()
+				);
 			}
 		};
-		let reject = (reason) => {
-			if (this.status === PENDING) {
-				this.reason = reason;
-				this.status = REJECTED;
-				this.onRejectedCallbacks.forEach(fn => fn());
-			}
-		};
-		try {
-			executor(resolve, reject); 
-		} catch (e) {
-			reject(e);
-		}
+		executor(resolve); 
 	}
-	then(onfulfilled, onrejected) {
-		onfulfilled = typeof onfulfilled === 'function' ? onfulfilled : v => v;
-		onrejected = typeof onrejected === 'function' ? onrejected : error => { throw error };
-		let promise2 = new Promise((resolve, reject) => {
-			if (this.status === RESOLVED) {
-				setTimeout(() => {
-					try {
-						let x = onfulfilled(this.value);
-						resolvePromise(promise2, x, resolve, reject);
-					} catch (e) { 
-						console.log(e);
-						reject(e);
-					}
-				}, 0);
-			}
-			if (this.status === REJECTED) {
-				setTimeout(() => {
-					try {
-						let x = onrejected(this.reason);
-						resolvePromise(promise2, x, resolve, reject);
-					} catch (e) {
-						reject(e);
-					}
-				}, 0);
-			}
+	then(onfulfilled) {
+		let promise2 = new Promise((resolve) => {
 			if (this.status === PENDING) {
-				this.onResolvedCallbacks.push(() => {
-					setTimeout(() => {
-						try {
-							let x = onfulfilled(this.value);
-							resolvePromise(promise2, x, resolve, reject);
-						} catch (e) {
-							reject(e);
-						}
-					}, 0);
-				});
-				this.onRejectedCallbacks.push(() => {
-					setTimeout(() => {
-						try {
-							let x = onrejected(this.reason);
-							resolvePromise(promise2, x, resolve, reject);
-						} catch (e) {
-							reject(e);
-						}
-					}, 0);
-				});
+				this.onResolvedCallbacks.push(
+					() => {
+						let x = onfulfilled(this.value);
+						resolve(x)
+					}
+				);
+				
 			}
 		});
 
 		return promise2;
 	}
-	catch(errCallback) {
-		return this.then(null, errCallback);
-	}
 }
+
+new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(100)
+    }, 4000);
+    setTimeout(() => {
+		reject(200)
+	}, 3000);
+}).then(
+    res => {
+        console.log(res)
+    }
+)
 
 module.exports = Promise;
