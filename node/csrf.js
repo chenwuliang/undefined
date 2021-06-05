@@ -48,6 +48,7 @@ app.use(async (ctx) => {
     } 
     else {
         ctx.body = '非index'
+        console.log(11)
     }
 })
 
