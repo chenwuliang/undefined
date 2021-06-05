@@ -1,0 +1,22 @@
+{
+  "name": "csrf",
+  "version": "1.0.0",
+  "description": "csrf jsonp",
+  "main": "csrf.js",
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "anywhere 8080",
+    "server": "nodemon csrf.js"
+  },
+  "keywords": [
+    "csrf",
+    "jsonp"
+  ],
+  "author": "Leon",
+  "license": "ISC"
+}

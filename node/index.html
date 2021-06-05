@@ -7,16 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    jsonp YEMI
     <script>
-        // cors
-        fetch('http://127.0.0.1:3000/index')
+        // cors 跨域
+        fetch('http://127.0.0.1:9527/index')
     </script>
     <script>
         const test = function(data) {
             console.log(data)
         }
     </script>
-    <script src="http://127.0.0.1:3000/jsonp?callback=test"></script>
+    <script src="https://localhost:9527/jsonp?callback=test"></script>
 </body>
 </html>
