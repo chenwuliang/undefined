@@ -47,6 +47,8 @@ app.use(async (ctx) => {
         ctx.body = cb + '(' + '"数据"' + ')';
     } 
     else {
+
+        console.log(222)
         ctx.body = '非index'
         console.log(11)
     }
