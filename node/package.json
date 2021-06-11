@@ -11,12 +11,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "anywhere 8080",
-    "server": "nodemon csrf.js"
+    "server": "nodemon server/csrf.js"
   },
   "keywords": [
     "csrf",
     "jsonp"
   ],
   "author": "Leon",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "anywhere": "^1.5.0",
+    "nodemon": "^2.0.7"
+  }
 }
