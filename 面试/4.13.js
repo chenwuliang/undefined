@@ -100,3 +100,7 @@ new Promise((resolve)=>{
     console.log('promise2');
 
 });
+
+function gongzi(k, month) {
+    return  (k * 12) + (k * (month - 12) * 0.8)
+}

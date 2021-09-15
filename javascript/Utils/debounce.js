@@ -1,10 +1,10 @@
-function debounce(fn) {
+function debounce(fn, delay) {
     let timeout = null;
     return function(...arg) {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             fn(...arg);
-        }, 400);
+        }, delay);
     };
 }
 

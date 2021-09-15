@@ -4,6 +4,7 @@ function deepClone (obj) {
     if (typeof obj !== 'object') return obj 
     if (obj instanceof RegExp) return new RegExp(obj)
     if (obj instanceof Date) return new Date(obj)
+    if (typeof obj !== 'object') return obj 
     else {
         let newObj = new obj.constructor
         for (let key in obj) {

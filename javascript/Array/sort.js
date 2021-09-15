@@ -1,8 +1,8 @@
 // 冒泡排序,每一趟找出最大的,总共比较次数为arr.length-1次,每次的比较次数为arr.length-1次，依次递减
 var arr=[1,5,7,9,16,2,4];
 var temp;
-for(var i=0;i<arr.length-1;i++){
-    for(var j=0;j<arr.length-1;j++){
+for(var i=0; i < arr.length-1; i++){
+    for(var j=0; j < arr.length-1; j++){
         if(arr[j]>arr[j+1]){
             temp=arr[j];
             arr[j]=arr[j+1];
@@ -10,6 +10,49 @@ for(var i=0;i<arr.length-1;i++){
         }
     }
 }
+
+Array.prototype.mySort = function (fn) {
+    var arr = this
+    var temp;
+    for(var i=0; i < arr.length-1; i++){
+        for(var j=0; j < arr.length-1; j++){
+            if(fn(arr[j], arr[j+1]) > 0){
+                temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    }
+}
+Array.prototype.min = function () {
+    var arr = this
+    var min = arr[0]
+    for(var i = 0; i <= arr.length - 1; i++){
+        if(min > arr[i]){
+            min = arr[i];  
+        }
+    }
+    return min
+}
+function test(item) {
+    return item === 3
+}
+Array.prototype.findItem = function (fn) {
+    var arr = this
+    for (var i=0; i < arr.length-1; i++){
+        if (fn(arr[i])){
+            return arr[i]
+        }
+    }
+}
+arr = [
+    {name: '张三'},
+    {name: '张4'},
+    {name: '张5'},
+    {name: '张6'},
+]
+arr.findItem(item => item === 3)
+
 
 // 快速排序
 function quickSort(arr){
