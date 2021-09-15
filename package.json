@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/chenwuliang/js/issues"
   },
-  "homepage": "https://github.com/chenwuliang/js#readme"
+  "homepage": "https://github.com/chenwuliang/js#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "node-fetch": "^3.0.0"
+  }
 }
