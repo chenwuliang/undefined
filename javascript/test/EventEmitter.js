@@ -9,16 +9,12 @@ export default class EventEmitter {
                 fn,
                 isOnce
             });
-            if (list.length > 20) {
-                console.log(`${eventName} 注册事件数量超过20❌ `, ` 当前数量 ${list.length}, 请及时清除！`);
-            }
         } else {
             this.map[eventName] = [{
                 fn,
                 isOnce
             }];
         }
-        // console.info(`${eventName}注册成功`, this.map);
     }
     emit(eventName, ...args) {
         const list = this.map[eventName];
@@ -40,15 +36,11 @@ export default class EventEmitter {
         toDelete = null;
     }
     off(eventName, fn) {
-        // console.info(`开始注销`, fn);
         const list = this.map[eventName];
         if (!Array.isArray(list)) {
             console.warn(`不存在${eventName}事件`);
             return;
         }
-        /**
-         * e.off("test")
-         */
         if (fn === undefined) {
             // console.info(`${eventName}注销全部事件`);
             this.map[eventName] = null;
@@ -60,7 +52,6 @@ export default class EventEmitter {
         }
         const index = list?.findIndex(ele => ele === fn);
         list.splice(index, 1);
-        // console.info(`注销成功`, fn);
     }
     once(eventName, fn) {
         this.on(eventName, fn, true);

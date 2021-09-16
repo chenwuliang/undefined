@@ -42,14 +42,20 @@ class List {
         cur.next = node
         node.next = tmp
     }
+    /**
+     * 缓存下一个元素
+     * 当前元素指向上一个元素
+     * pre指针指向当前元素
+     * cur指针指向下一个元素
+     */
     reverse() {
         let pre = null
         let cur = this.head
-        while(cur) {
-            const next = cur.next
-            cur.next = pre
-            pre = cur
-            cur = next
+        while (cur) {
+            let next = cur.next // 缓存下一个元素
+            cur.next = pre // 当前元素指向上一个元素
+            pre = cur // pre指针指向当前元素
+            cur = next // cur指针指向下一个元素
         }
         this.head = pre
         return this
