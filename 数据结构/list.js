@@ -42,6 +42,18 @@ class List {
         cur.next = node
         node.next = tmp
     }
+    reverse() {
+        let pre = null
+        let cur = this.head
+        while(cur) {
+            const next = cur.next
+            cur.next = pre
+            pre = cur
+            cur = next
+        }
+        this.head = pre
+        return this
+    }
     toString() {
         let str = ""
         let cur = this.head
@@ -55,15 +67,11 @@ class List {
 }
 
 let list = new List()
-const node1 = new Node(1)
-const node2 = new Node(2)
-const node3 = new Node(3)
-const node4 = new Node(4)
-const node5 = new Node(5)
-list
-.append(node1)
-.append(node2)
-.append(node3)
-.append(node4)
-.insert(2, node5)
+for (let i = 0; i <= 100; i ++) {
+    list.append(new Node(i))
+}
+list.insert(55, new Node("测试"))
+console.log()
 console.log(list.toString())
+console.log(list.reverse().toString())
+console.log()
