@@ -10,7 +10,7 @@ class Crypt {
         return encrypted
     }
     decode(encrypted) {
-        let unEncrypted = ""
+        let unEncrypted = "";
         for (var i = 0;i < encrypted.length;i++) {
             unEncrypted += (String.fromCharCode(encrypted.charCodeAt(i) ^ this.key))
         }
@@ -24,13 +24,17 @@ class Crypt {
     }
 }
 if (process.env.NODE_ENV === "test") {
+    const aa = {
+        a: 1
+    }
     const crypt = new Crypt()
     console.log()
     console.log(process.env)
     const data = {
         name: 1,
         data: {
-            name: 2
+            name: 2,
+            ...aaa
         }
     }
     const a = crypt.encodeObject(data)
