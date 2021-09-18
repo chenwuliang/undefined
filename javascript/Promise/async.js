@@ -1,5 +1,5 @@
 console.log('1');
-async function async1() {
+export async function async1() {
     console.log('2');
     async2()
     .then(res => {

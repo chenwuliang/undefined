@@ -17,8 +17,8 @@ function curry(fn) {
     return generator
 }
 
-let add_curry = curry(add)
+const addCurry = curry(add)
 
-console.log(add_curry)
-const res = add_curry(2, 3, 5, 5)
-console.log('res: ',res)
+console.log(addCurry)
+const res = addCurry(2, 3, 5, 5)
+console.log("res: ", res)

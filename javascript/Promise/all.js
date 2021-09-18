@@ -1,22 +1,22 @@
 function promiseAll(arr) {
     return new Promise((resolve, reject) => {
-        const list = [];
+        const list = []
         let index = 0
         if (arr.length === 0) {
-            resolve([]);
-            return;
+            resolve([])
+            return
         }
         arr.map(item => {
             Promise.resolve(item).then((val) => {
-                list[i] = val;
+                list[index] = val
                 index++
-                if (index === arr.length) resolve(list);
+                if (index === arr.length) resolve(list)
             })
-            .catch((e) => {
-                reject(e);
-            });
+                .catch((e) => {
+                    reject(e)
+                })
         })
-    });
+    })
 }
 function createPromise(index) {
     return new Promise(res => {
@@ -26,11 +26,11 @@ function createPromise(index) {
         }, index * 1000)
     })
 }
-let list = [
+const list = [
     createPromise(1),
     createPromise(2),
     createPromise(3),
-    createPromise(10),
+    createPromise(10)
 ]
 console.log("start")
 promiseAll(list).then(res => {

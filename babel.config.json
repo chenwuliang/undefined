@@ -1,0 +1,12 @@
+{
+  "presets": ["@babel/preset-env"],
+  // https://blog.csdn.net/youhebuke225/article/details/106524984/
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
+  ]
+}

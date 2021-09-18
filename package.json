@@ -3,25 +3,33 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {
-    "element-ui": "^2.15.1"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=mock jest -i --coverage",
+    "lint": "eslint --fix --ext .js"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenwuliang/js.git"
+    "url": "git+https://github.com/chenwuliang/undefined.git"
   },
-  "author": "",
+  "author": "leon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chenwuliang/js/issues"
+    "url": "https://github.com/chenwuliang/undefined/issues"
   },
-  "homepage": "https://github.com/chenwuliang/js#readme",
+  "homepage": "https://github.com/chenwuliang/undefined#readme",
   "dependencies": {
-    "co": "^4.6.0",
-    "jest": "^27.2.0",
-    "node-fetch": "^3.0.0"
+    "co": "^4.6.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0"
   }
 }

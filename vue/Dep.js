@@ -1,22 +1,24 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 class Watcher {
     constructor (vm, expOrFn, cb, options) {
-        this.cb = cb;
-        this.vm = vm;
+        this.cb = cb
+        this.vm = vm
 
-        /*在这里将观察者本身赋值给全局的target，只有被target标记过的才会进行依赖收集*/
-        Dep.target = this;
-        /*Github:https://github.com/answershuto*/
-        /*触发渲染操作进行依赖收集*/
-        this.cb.call(this.vm);
+        /* 在这里将观察者本身赋值给全局的target，只有被target标记过的才会进行依赖收集*/
+        Dep.target = this
+        /* Github:https://github.com/answershuto*/
+        /* 触发渲染操作进行依赖收集*/
+        this.cb.call(this.vm)
     }
 
     update () {
-        this.cb.call(this.vm);
+        this.cb.call(this.vm)
     }
 }
 class Dep {
     constructor () {
-        this.subs = [];
+        this.subs = []
     }
 
     addSub (sub) {
@@ -26,11 +28,11 @@ class Dep {
     removeSub (sub) {
         remove(this.subs, sub)
     }
-    /*Github:https://github.com/answershuto*/
+    /* Github:https://github.com/answershuto*/
     notify () {
         // stabilize the subscriber list first
         const subs = this.subs.slice()
-        for (let i = 0, l = subs.length; i < l; i++) {
+        for (let i = 0, l = subs.length;i < l;i++) {
             subs[i].update()
         }
     }
@@ -44,32 +46,33 @@ function remove (arr, item) {
     }
 }
 
-class Vue {
+export class Vue {
     constructor(options) {
-        this._data = options.data;
-        observer(this._data, options.render);
-        let watcher = new Watcher(this );
+        this._data = options.data
+        observer(this._data, options.render)
+        const watcher = new Watcher(this)
     }
 }
 
 function defineReactive (obj, key, val, cb) {
-    /*在闭包内存储一个Dep对象*/
-    const dep = new Dep();
+    /* 在闭包内存储一个Dep对象*/
+    const dep = new Dep()
 
     Object.defineProperty(obj, key, {
         enumerable: true,
         configurable: true,
-        get: ()=>{
+        get() {
             if (Dep.target) {
-                /*Watcher对象存在全局的Dep.target中*/
-                dep.addSub(Dep.target);
+                /* Watcher对象存在全局的Dep.target中*/
+                dep.addSub(Dep.target)
             }
+            return null
         },
-        set:newVal=> {
-            /*只有之前addSub中的函数才会触发*/
-            dep.notify();
+        set: newVal => {
+            /* 只有之前addSub中的函数才会触发*/
+            dep.notify()
         }
     })
 }
 
-Dep.target = null;
+Dep.target = null

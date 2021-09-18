@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
-import to from "./to";
+import to from "../to";
 
 describe("To", () => {
     // 1.正常promise如果reject或者有代码错误会有异常抛出，await后面代码不会执行。
     // 2.也无法处理区分正常和异常情况，需要手动try catch。
     it("catch common promise error", async() => {
-        const createPromise = async () => {
+        const createPromise = () => {
             return new Promise((resolve, reject) => {
                 reject("执行错误");
             });
@@ -22,7 +22,7 @@ describe("To", () => {
         expect(res).toBe(undefined);
     });
     it("filter promise success", async() => {
-        const createPromise = async () => {
+        const createPromise = () => {
             return new Promise((resolve, reject) => {
                 resolve("完成，正常执行");
             });
@@ -32,7 +32,7 @@ describe("To", () => {
         expect(res).toBe("完成，正常执行");
     });
     it("filter promise failed", async() => {
-        const createPromise = async () => {
+        const createPromise = () => {
             return new Promise((resolve, reject) => {
                 reject("执行失败");
             });
@@ -42,7 +42,7 @@ describe("To", () => {
         expect(res).toBe(undefined);
     });
     it("filter promise catch", async() => {
-        const createPromise = async () => {
+        const createPromise = () => {
             return new Promise((resolve, reject) => {
                 throw new Error("new Error");
             });
