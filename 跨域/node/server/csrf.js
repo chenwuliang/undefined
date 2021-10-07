@@ -59,6 +59,9 @@ app.use(async (ctx) => {
     }
 })
 
-https.createServer(options, app.callback()).listen(9527, () => {
+app.listen(9527, () => {
     console.log(`server running success at 9527`)
-});
+})
+// https.createServer(options, app.callback()).listen(9527, () => {
+//     console.log(`server running success at 9527`)
+// });
