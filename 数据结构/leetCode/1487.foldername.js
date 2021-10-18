@@ -12,22 +12,38 @@ var getFolderNames = function(names) {
     const isNumber = name => typeof name === 'number'
     names.map(item => {
         if (isNumber(map[item])) {
-            map[item] += 1
-            let name = `${item}(${map[item]})`
-            while (isNumber(map[name])) {
+            let name
+            do {
                 map[item] += 1
                 name = `${item}(${map[item]})`
-            }
+            } while(isNumber(map[name]))
+        }
+        map[item] = 0
+        res.push(item)
+    })
+    return res
+};
+
+// let res = getFolderNames(arr2)
+// console.log("res", res)
+
+var getFolderNames = function(names) {
+    const map = {}
+    const res = []
+    const isNumber = name => typeof name === 'number'
+    names.map(item => {
+        if (isNumber(map[item])) {
+            let name
+            do {
+                map[item] += 1
+                name = `${item}(${map[item]})`
+            } while(isNumber(map[name]))
             map[name] = 0
             res.push(name)
         } else {
             map[item] = 0
             res.push(item)
         }
-        console.log(res)
     })
     return res
 };
-
-let res = getFolderNames(arr2)
-console.log("res", res)
