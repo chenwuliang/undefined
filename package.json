@@ -29,7 +29,10 @@
   },
   "homepage": "https://github.com/chenwuliang/undefined#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
     "co": "^4.6.0",
+    "express": "^4.17.1",
+    "superagent": "^6.1.0",
     "typescript": "^4.4.3"
   },
   "devDependencies": {

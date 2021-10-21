@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/making-file-names-unique/
+
 /**
  * @param {string[]} names
  * @return {string[]}
