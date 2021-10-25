@@ -28,13 +28,3 @@ var plusOne = function(digits) {
 let arr = [9, 9]
 plusOne(arr)
 console.log(arr)
-
-// plusOne = function () {
-//     for (let i = 0; i < 10; i ++) {
-//         if (i > 4) {
-//             return 
-//         }
-//         console.log(i)
-//     }
-// }
-// plusOne()
