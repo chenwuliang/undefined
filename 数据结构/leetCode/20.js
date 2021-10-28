@@ -1,4 +1,4 @@
-
+// 有效括号
 const map = ['(', "[", "{"]
 const rightMap = [')', "]", "}"]
 function isValid(str) {
