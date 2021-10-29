@@ -20,7 +20,7 @@ class TreeNode {
  * @param {TreeNode} root
  * @return {number}
  */
-const maxDepth = (root) => {
+ var maxDepth = (root) => {
     if (root === null) return 0
     let arr = []
     function dfs(node, dep) {
@@ -39,7 +39,7 @@ const maxDepth = (root) => {
     return Math.max(...arr)
 };
 
-const maxDepth = (root) => {
+var maxDepth = (root) => {
     let depth = 0
     function dfs(node, dep) {
         if (node === null) return dep > depth ? depth = dep : depth
@@ -50,12 +50,12 @@ const maxDepth = (root) => {
     return depth
 };
 
-let maxDepth = (root) => {
+var maxDepth = (root) => {
     if (root === null) return 0
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 };
 
-function sum(root) {
+function dfsum(root) {
     let nodeNum = 1
     function dfs(node) {
         if (node.left === null && node.right === null) return
@@ -70,6 +70,10 @@ function sum(root) {
     }
     dfs(root)
     return nodeNum
+}
+function sum(root) {
+    if (root === null) return 0
+    return sum(root.left) + sum(root.right) + 1
 }
 
 const root = {
@@ -94,4 +98,5 @@ const root = {
     }
 }
 let depth = maxDepth(root)
-console.log(depth)
+let n = sum(root)
+console.log(n)
