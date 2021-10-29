@@ -65,8 +65,8 @@ try {
     arr.map((method, i) => {
         dict[method](arg[i][0])
     })
-} catch {
-    
+} catch (e) {
+    e
 }
 
 console.log(dict)

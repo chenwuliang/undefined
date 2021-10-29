@@ -4,7 +4,7 @@ export default function pop() {
     var arr = [1, 5, 7, 9, 16, 2, 4]
     var temp
     for (var i = 0;i < arr.length - 1;i++) {
-        for (var j = 0;j < arr.length - 1;j++) {
+        for (var j = 0;j < arr.length - 1 - i; j++) {
             if (arr[j] > arr[j + 1]) {
                 temp = arr[j]
                 arr[j] = arr[j + 1]
@@ -79,7 +79,7 @@ export function quickSort(arr) {
 var arr = [1, 23, 5, 8, 11, 78, 45]
 var temp
 for (var i = 0;i < arr.length - 1;i++) {
-    for (var j = i + 1;j < arr.length;j++) {
+    for (var j = i + 1;j < arr.length; j++) {
         if (arr[i] > arr[j]) {
             temp = arr[i]
             arr[i] = arr[j]
