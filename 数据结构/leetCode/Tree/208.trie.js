@@ -1,7 +1,7 @@
 
 /**
- * 208
- * https://leetcode-cn.com/problems/implement-trie-prefix-tree/submissions/
+ * 208 实现前缀树
+ * https://leetcode-cn.com/problems/implement-trie-prefix-tree/
  */
 
 
