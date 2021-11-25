@@ -3,6 +3,11 @@
 
 [MOOC网](https://www.icourse163.org/course/PKU-1002534001)
 
+## 模式
+- ACM模式
+- 核心代码模式
+
+
 # Leetcode 账号
 
 [Leetcode](https://leetcode-cn.com/u/leonsin/)
