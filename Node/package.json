@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  },
-
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chenwuliang/undefined.git"
@@ -24,6 +22,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.10",
     "express": "^4.17.1",
-    "superagent": "^6.1.0"
+    "sharp": "^0.29.3",
+    "superagent": "^6.1.0",
+    "svg-captcha": "^1.4.0"
   }
 }
