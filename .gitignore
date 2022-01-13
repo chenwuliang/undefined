@@ -8,3 +8,5 @@ coverage
 yarn.lock
 package-lock.json
 cnode.*
+
+Javascript/TS/test*.js
