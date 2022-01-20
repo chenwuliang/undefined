@@ -5,6 +5,13 @@
   </div>
   <router-view />
 </template>
+<script>
+export default {
+  setup() {
+    console.log("Home");
+  },
+};
+</script>
 
 <style lang="less">
 #app {
