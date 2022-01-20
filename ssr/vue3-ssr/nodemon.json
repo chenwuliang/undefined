@@ -1,0 +1,12 @@
+{
+    "verbose": true,
+    "watch": [
+        "src",
+        "server.js"
+    ],
+    "ext": "js css html json",
+    "ignore": [
+        "dist",
+        "node_modules/**/node_modules"
+    ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "vue-ssr",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node webpack config webpack.server.config.js ",
+    "build": "npm run build:server && move dist\\vue-ssr-server-bundle.json bundle && npm run build:client && move bundle dist\\vue-ssr-server-bundle.json",
+    "lint": "vue-cli-service lint",
+    "dev": "node ./server.js"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0",
+    "vue-server-renderer": "^2.6.14",
+    "vuex": "^3.4.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.0.4",
+    "less-loader": "^5.0.0",
+    "prettier": "^2.2.1",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
